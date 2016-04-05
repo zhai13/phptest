@@ -10,8 +10,8 @@ namespace Home\Controller;
 use Think\Controller;
 
 
-class EmptyController extends Controller {
-    public function _empty() {
+class EmptyController extends Controller {  //空控制器
+    public function _empty() {  //空操作方法
         echo '空操作方法';
     }
 }
