@@ -17,6 +17,13 @@ if(version_compare(PHP_VERSION,'5.3.0','<'))  die('require PHP > 5.3.0 !');
 // 开启调试模式 建议开发阶段开启 部署阶段注释或者设为false
 define('APP_DEBUG',True);
 
+//入口文件绑定模块，新建一个模块
+define('BIND_MODULE', 'Views');
+
+//目录安全文件关闭（安全文件：每个目录下会列出一个index.html）
+define('BUILD_DIR_SECURE', false);
+
+
 // 定义应用目录
 define('APP_PATH','./Application/');
 
