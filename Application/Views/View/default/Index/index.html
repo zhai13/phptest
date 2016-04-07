@@ -64,16 +64,30 @@
 			<!--变量方式-->
 			<!--<td>{$user}</td>-->
 			<!--数组方式-->
-			<td>{$user.user}</td>
+			<!--变量是第一个参数：{$value|function[=?,?,?]}, 例如：{$value|trim}-->
+			<td>{$user.user|strtoupper}</td>
 		</tr>
 		<tr>
 			<td>电子邮件</td>
-			<td>{$user.mail}</td>
+			<!--变量不是第一个参数：{$value|str_replace=?,?,###}-->
+			<!--<td>{$user.mail|str_replace='13cloud', 'thirteen', ###}</td>-->
+			<!--嵌套使用多个函数：{$value|func1|func2|func3}, 优先级从左到右-->
+			<td>{$user.mail|str_replace='13cloud', 'thirteen', ###|strtoupper}</td>
+		</tr>
+		<tr>
+			<td>电子邮件php</td>
+			<!--回归原声php:{:表达式}-->
+			<td>{:strtoupper(str_replace('13cloud', 'thirteen_php', $user['mail']))}</td>
 		</tr>
 		<tr>
 			<td>年龄</td>
 			<!--使用运算符注意数学运算，点语法失效，需要用数组中括号的方式-->
 			<td>{$user['age']-1}</td>
+		</tr>
+		<tr>
+			<td>计算年龄</td>
+			<!--使用函数，计算年龄-->
+			<td>{$birthday_year|getAge}</td>
 		</tr>
 		<tr>
 			<td>手机号码</td>

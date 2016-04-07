@@ -8,6 +8,8 @@ class IndexController extends Controller {
         $email = 'admin@13cloud.cn';
         $age = 29;
 
+        $birthday_year=1990;
+
         //数组形式
         $user = array(
             'user' => $username,
@@ -15,6 +17,7 @@ class IndexController extends Controller {
             'age' => $age,
         );
         $this->assign('user',$user);
+        $this->assign('birthday_year',$birthday_year);
 
         //$fetchContent = $this->fetch(); //会返回渲染后的内容，但不会输出
         //$fetchContent = str_replace('zhai13', 'Thirteen', $fetchContent);
