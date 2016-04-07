@@ -72,7 +72,18 @@
 		</tr>
 		<tr>
 			<td>年龄</td>
-			<td>{$user.age}</td>
+			<!--使用运算符注意数学运算，点语法失效，需要用数组中括号的方式-->
+			<td>{$user['age']-1}</td>
+		</tr>
+		<tr>
+			<td>手机号码</td>
+			<!--默认值输出:{$value='默认值'}-->
+			<td>{$mobile|default='没有手机号码'}</td>
+		</tr>
+		<tr>
+			<td>项目目录</td>
+			<!--系统变量-->
+			<td>{$Think.server.DOCUMENT_ROOT}</td>
 		</tr>
 		</tbody>
 	</table>

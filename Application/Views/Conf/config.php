@@ -8,4 +8,6 @@ return array(
     'DEFAULT_THEME'=>'default', //默认主题名称的配置
     'TMPL_DETECT_THEME'=>true,  // 自动侦测模板主题
     'THEME_LIST'=>'default,zhai13', //要切换的所有主题的名称
+    //'TMPL_L_DELIM'=>'{{',     //自定义模板解析定界符开始
+    //'TMPL_R_DELIM'=>'}}',     //自定义模板解析定界符结束
 );
