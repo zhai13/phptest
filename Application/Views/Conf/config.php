@@ -10,4 +10,7 @@ return array(
     'THEME_LIST'=>'default,zhai13', //要切换的所有主题的名称
     //'TMPL_L_DELIM'=>'{{',     //自定义模板解析定界符开始
     //'TMPL_R_DELIM'=>'}}',     //自定义模板解析定界符结束
+    'TMPL_PARSE_STRING' => array(   //模板替换配置
+        '__CND__' => './Cdn',
+    ),
 );
