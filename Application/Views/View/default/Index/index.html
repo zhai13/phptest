@@ -1,3 +1,4 @@
+<taglib name="Views\TagLib\Zhai" />
 <!DOCTYPE html>
 <html lang="">
 <head>
@@ -176,6 +177,18 @@
 			</blockquote>
 		</div>
 	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">friends标签实例</h3>
+		</div>
+		<div class="list-group">
+			<Zhai:friends name="zhai_user" uid="2" empty="没有数据">
+				<a href="#" class="list-group-item">{$jike_user['username']}</a>
+			</Zhai:friends>
+		</div>
+	</div>
+
+
 </div>
 	<include file="Public/js" />
 </body>
