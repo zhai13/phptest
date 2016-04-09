@@ -53,6 +53,129 @@
 		</tr>
 		</tbody>
 	</table>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">好友列表</h3>
+		</div>
+		<ul class="list-group media-list">
+			<!-- volist循环 -->
+			<!--name='要循环的变量名称' id='循环体内的变量名称' empty='当数据集为空的时候输出的字符串'-->
+			<volist name="friends" id="friend" empty="难道这就是强大到没朋友的节奏">
+				<li class="list-group-item media">
+					<a class="pull-left" href="#">
+						<!-- empty判断头像是否为空 -->
+						<empty name="friend['avatar']">
+							<!-- 为空则输出default.png -->
+							<img width="120" height="120" class="media-object" src="__AVATAR__/default.png" alt="{$friend['username']}">
+							<else/>
+							<!-- 不为空则输出用户的头像 -->
+							<img width="120" height="120" class="media-object" src="__AVATAR__/{$friend['avatar']}" alt="{$friend['username']}">
+						</empty>
+					</a>
+					<div class="media-body">
+						<h4 class="media-heading">
+							{$friend['username']}(今年{$friend.age}岁)
+
+
+							<!--
+								eq        :     ==
+								neq      :     !=
+								gt         :     >
+								egt       :     >=
+								lt          :     <
+								elt        :     <=
+								heq      :     ===
+								nheq    :     !==
+							-->
+
+							<!-- eq，判断年龄是否是30岁 -->
+							<!--name='要比较的变量' value='参照值' type='type类型(相等、不相等、大于、小于...)'-->
+							<compare name="friend['age']" value="30" type="eq">
+								<span class="label label-warning">您恰好30岁，真是猿粪啊！</span>
+							</compare>
+
+							<!-- if else -->
+							<!-- 如果年龄小于18岁 -->
+							<!--如果是if标点，有condition属性，有$符号。-->
+							<if condition="$friend['age'] lt 18">
+								<span class="pull-right">因为未成年，所以不显示</span>
+								<else/>
+								<!-- 否则输出按钮 -->
+								<a href="#" class="pull-right btn btn-warning">这项操作需要满18岁</a>
+							</if>
+						</h4>
+						<p>
+							<!-- 比较标签 -->
+
+							<!-- lt方式比较年龄 -->
+							<!--小于 name='要比较的变量' value='要比较的值'-->
+							<lt name="friend['age']" value="18">未成年</lt>
+							<!-- compare方式比较 -->
+							<compare name="friend['age']" value="18" type="lt">
+								<span class="text-danger">注意，compare标签也表示：{$friend['username']}未成年！</span>
+							</compare>
+							<!-- egt方式比较年龄 -->
+							<!--大于等于-->
+							<egt name="friend['age']" value="35">中年人</egt>
+							<!-- between方式判断年龄区间 -->
+							<between name="friend['age']" value="18,34">青年</between>
+						</p>
+						<div>
+							标签：
+							<!-- Volist循环嵌套输出tags标签 -->
+							<!--name='循环体内的变量名称'-->
+							<volist name="friend['tags']" id="tag">
+								<!--id 内循环体内的变量名称-->
+								<span class="label label-success">{$tag}</span>
+							</volist>
+						</div>
+					</div>
+				</li>
+			</volist>
+		</ul>
+	</div>
+	<!-- For循环 -->
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">For标签循环输出</h3>
+		</div>
+		<div class="list-group">
+			<!-- for -->
+			<!--start='起始值' end='最大值（结束值）' step='步进值'-->
+			<for start="0" end="5" step="1">
+				<a href="#" class="list-group-item">使用for标签循环了{$i+1}次了</a>
+			</for>
+		</div>
+	</div>
+	<!-- PHP标签 -->
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">使用PHP标签实现php代码循环输出</h3>
+		</div>
+		<div class="list-group">
+			<!-- php标签 -->
+			<php>
+				for ($i=0; $i <5 ; $i++) {
+				echo '<a href="#" class="list-group-item">使用php标签循环了'.($i+1).'次了</a>';
+				}
+			</php>
+		</div>
+	</div>
+	<!-- literal原样输出 -->
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">原样输出</h3>
+		</div>
+		<div class="panel-body">
+			<blockquote>
+				<pre>
+					<literal>
+					我们可以使用{$user.user}的方式来输出用户名
+					</literal>
+				</pre>
+			</blockquote>
+		</div>
+	</div>
 </div>
 	<include file="Public/js" />
 </body>

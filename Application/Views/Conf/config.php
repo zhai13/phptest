@@ -12,5 +12,6 @@ return array(
     //'TMPL_R_DELIM'=>'}}',     //自定义模板解析定界符结束
     'TMPL_PARSE_STRING' => array(   //模板替换配置
         '__CND__' => './Cdn',
+        '__AVATAR__' => '/Uploads/avatar',
     ),
 );
