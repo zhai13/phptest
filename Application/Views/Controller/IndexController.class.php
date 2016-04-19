@@ -29,7 +29,14 @@ class IndexController extends Controller {
         /*$this->assign('user', $username);
         $this->assign('mail', $email);
         $this->assign('age', $age);*/
-
+        //layout('layout');
         $this->display();   //渲染视图
+    }
+
+    public function friends() {
+        //好友数据变量赋值
+        $this->assign('friends', get_user_friends());
+        //layout('layout');
+        $this->display();
     }
 }

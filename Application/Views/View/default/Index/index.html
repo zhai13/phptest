@@ -1,14 +1,8 @@
-<taglib name="Views\TagLib\Zhai" />
-<!DOCTYPE html>
-<html lang="">
-<head>
-	<include file="Public/head" />
-</head>
-<body>
-<!--包含文件：include file="模板表达式/文件路径[,...]" key=value-->
-<!--home="主页"include传递变量-->
-<include file="Public/navbar" home="主页"/>
-<div class="container">
+<!--
+<layout name="layout"/>
+-->
+	<extend name="Base/Common"/>
+	<block name="content">
 	<div class="alert alert-warning">
 		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 		<strong>default</strong> 默认主题
@@ -187,9 +181,10 @@
 			</Zhai:friends>
 		</div>
 	</div>
-
-
-</div>
-	<include file="Public/js" />
-</body>
-</html>
+</block>
+<block name="header">
+	<div class="alert alert-success">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		<strong>Success</strong> 重载 Header block
+	</div>
+</block>

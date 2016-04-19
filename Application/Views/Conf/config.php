@@ -14,4 +14,7 @@ return array(
         '__CND__' => './Cdn',
         '__AVATAR__' => '/Uploads/avatar',
     ),
+    //'LAYOUT_ON' => true,
+    //'LAYOUT_NAME' => 'layout',
+    //'TMPL_LAYOUT_ITEM' => '{__CONTENT__}',
 );
